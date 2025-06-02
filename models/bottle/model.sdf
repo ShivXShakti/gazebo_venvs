@@ -1,0 +1,90 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="bottle">
+    <static>false</static>
+
+    <!-- Bottle Body -->
+    <link name="bottle_body">
+      <pose>0 0 0.15 0 0 0</pose>
+
+      <collision name="collision">
+        <geometry>
+          <cylinder>
+            <radius>0.03</radius>
+            <length>0.2</length>
+          </cylinder>
+        </geometry>
+      </collision>
+
+      <visual name="visual">
+        <geometry>
+          <cylinder>
+            <radius>0.03</radius>
+            <length>0.2</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.2 0.7 0.9 1</ambient>
+          <diffuse>0.3 0.8 1.0 1</diffuse>
+        </material>
+      </visual>
+
+      <inertial>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>0.0001</ixx>
+          <iyy>0.0001</iyy>
+          <izz>0.0001</izz>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+        </inertia>
+      </inertial>
+    </link>
+
+    <!-- Bottle Neck -->
+    <link name="bottle_neck">
+      <pose>0 0 0.275 0 0 0</pose>
+
+      <collision name="collision">
+        <geometry>
+          <cylinder>
+            <radius>0.015</radius>
+            <length>0.05</length>
+          </cylinder>
+        </geometry>
+      </collision>
+
+      <visual name="visual">
+        <geometry>
+          <cylinder>
+            <radius>0.015</radius>
+            <length>0.05</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.2 0.7 0.9 1</ambient>
+          <diffuse>0.3 0.8 1.0 1</diffuse>
+        </material>
+      </visual>
+
+      <inertial>
+        <mass>0.05</mass>
+        <inertia>
+          <ixx>0.00005</ixx>
+          <iyy>0.00005</iyy>
+          <izz>0.00005</izz>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+        </inertia>
+      </inertial>
+    </link>
+
+    <!-- Joint connecting neck to body -->
+    <joint name="neck_to_body" type="fixed">
+      <parent>bottle_body</parent>
+      <child>bottle_neck</child>
+    </joint>
+  </model>
+</sdf>
